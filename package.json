@@ -1,0 +1,26 @@
+{
+  "name": "winston-waterline",
+  "version": "0.0.0",
+  "description": "Winston transporter for Waterline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wilk/winston-waterline"
+  },
+  "keywords": [
+    "waterline",
+    "winston",
+    "transport",
+    "logger"
+  ],
+  "author": "Vincenzo (Wilk) Ferrari <wilk3ert@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "1c40afe8bff4330fee3773f6ff2f7820e9be8f6e",
+  "dependencies": {
+    "winston": "~0.7.3"
+  }
+}
