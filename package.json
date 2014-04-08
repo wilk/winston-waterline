@@ -22,5 +22,9 @@
   "gitHead": "1c40afe8bff4330fee3773f6ff2f7820e9be8f6e",
   "dependencies": {
     "winston": "~0.7.3"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.0",
+    "gulp-jshint": "~1.5.3"
   }
 }
