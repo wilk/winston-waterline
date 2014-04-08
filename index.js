@@ -53,8 +53,8 @@ Waterline.prototype.log = function (level, message, meta, callback) {
     log[me.fields.timestamp] = timestamp;
 
     Object.keys(meta).forEach(function (field) {
-        if (typeof me.fields[field] !== 'undefined' && me.fields[field] !== null) {
-            log[field] = meta[field];
+        if (me.fields.hasOwnProperty(field)) {
+            log[me.fields[field]] = meta[field];
         }
     });
 
