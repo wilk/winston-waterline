@@ -6,7 +6,7 @@ var winston = require('winston'),
     Waterline = function (options) {
         var me = this;
 
-        if (typeof model === 'undefined' || model === null) {
+        if (typeof options.model === 'undefined' || options.model === null) {
             throw new Error(new Date() + ' - ' + 'error: a Waterline model is required');
         }
 
@@ -56,7 +56,7 @@ Waterline.prototype.log = function (level, message, meta, callback) {
         }
     });
 
-    model.create(log, function (err, record) {
+    me.model.create(log, function (err, record) {
         if (err) {
             deferred.reject(err);
             if (typeof callback === 'function') callback(err);
@@ -67,7 +67,7 @@ Waterline.prototype.log = function (level, message, meta, callback) {
         if (me.safe) {
             var search = {};
             search[me.fields.id] = record[me.fields.id];
-            model.findOne(search, function (err, safeRecord) {
+            me.model.findOne(search, function (err, safeRecord) {
                 if (err) {
                     deferred.reject(err);
                     if (typeof callback === 'function') callback(err);
