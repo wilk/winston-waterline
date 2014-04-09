@@ -1,6 +1,6 @@
 {
   "name": "winston-waterline",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Winston transport for Waterline ORM",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
   "readmeFilename": "README.md",
   "gitHead": "1c40afe8bff4330fee3773f6ff2f7820e9be8f6e",
   "dependencies": {
-    "winston": "~0.7.3"
+    "winston": "~0.7.3",
+    "q": "~1.0.1"
   },
   "devDependencies": {
     "gulp": "~3.6.0",
