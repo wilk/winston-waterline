@@ -9,12 +9,12 @@ var winston = require('winston'),
 
         options = options || {};
 
-        if (typeof options.model === 'undefined' || options.model === null) {
-            throw new Error(new Date() + ' - ' + 'error: a Waterline model is required');
+        if (typeof options.collection === 'undefined' || options.collection === null) {
+            throw new Error(new Date() + ' - ' + 'error: a Waterline collection is required');
         }
 
-        // @todo: setup an empty Waterline model if no one is given
-        me.model = options.model;
+        // @todo: setup an empty Waterline collection if no one is given
+        me.collection = options.collection;
         me.level = options.level || 'info';
         me.silent = options.silent || false;
         me.safe = options.safe || false;
@@ -41,7 +41,7 @@ util.inherits(Waterline, winston.Transport);
  *     ...
  *   }
  *   Check out Waterline fields property for the mapping.
- * @param {Function} callback A callback function. It will be filled with the error in the case of failure, or with the log model created.
+ * @param {Function} callback A callback function. It will be filled with the error in the case of failure, or with the log collection created.
  * @returns {Promise} A Kriskowal Q promise. It's the same of the callback but it's cooler, of course!
  */
 Waterline.prototype.log = function (level, message, meta, callback) {
@@ -74,7 +74,7 @@ Waterline.prototype.log = function (level, message, meta, callback) {
         }
     });
 
-    me.model.create(log, function (err, record) {
+    me.collection.create(log, function (err, record) {
         if (err) {
             if (typeof callback === 'function') callback(err);
             deferred.reject(err);
@@ -86,7 +86,7 @@ Waterline.prototype.log = function (level, message, meta, callback) {
         if (me.safe) {
             var search = {};
             search[me.fields.id] = record[me.fields.id];
-            me.model.findOne(search, function (err, safeRecord) {
+            me.collection.findOne(search, function (err, safeRecord) {
                 if (err) {
                     if (typeof callback === 'function') callback(err);
                     deferred.reject(err);
