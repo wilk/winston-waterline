@@ -32,12 +32,10 @@ Waterline.prototype.log = function (level, message, meta, callback) {
     var me = this,
         deferred = q.defer(),
         timestamp = new Date(),
-        prefix = timestamp + ' - ',
+        prefix = timestamp + ' - ' + level + ': ',
         log = {};
 
     meta = meta || {};
-    level = level || me.level;
-    prefix += level + ': ';
 
     if (typeof message === 'undefined' || message === null || message.length === 0) {
         var error = prefix + "can't log an empty message";
@@ -48,7 +46,6 @@ Waterline.prototype.log = function (level, message, meta, callback) {
         return me.emit('error', error);
     }
 
-    log[me.fields.level] = level;
     log[me.fields.message] = message;
     log[me.fields.timestamp] = timestamp;
 
