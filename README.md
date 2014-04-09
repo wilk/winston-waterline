@@ -16,7 +16,9 @@ $ npm install winston-waterline
 ```javascript
 var winston = require('winston'),
     waterline = require('winston-waterline').Waterline,
-    options = {...};
+    options = {
+        ...
+    };
 
 // It exposes the transport to the winston transports list
 winston.add(winston.trasports.Waterline, options);
@@ -25,8 +27,8 @@ winston.add(waterline, options);
 ```
 
 ## Options
-  - **collection** {*WaterlineCollection*} (**required**): a Waterline Collection that reflects a database table or a document. It must have the following fields: id, message and timestamp.
-  - **fields** {*Object*}: a field mapping object. By default, it has the following data:
+  - **collection** {*WaterlineCollection*} (**required**): a Waterline Collection that represents a database table or a document. It must have the following fields: id, message and timestamp.
+  - **fields** {*Object*}: a field mapping object, representing the database table fields or the document properties. By default, it has the following data:
 
     ```
     {
@@ -36,7 +38,7 @@ winston.add(waterline, options);
     }
     ```
 
-    It can be override with a new map. For instance:
+    It can be overridden with a new map. For instance:
 
     ```
     {
@@ -49,8 +51,8 @@ winston.add(waterline, options);
     ```
 
   - **level** {*String*}: the level of the transport. Default: info
-  - **silent** {*Boolean*}: a flag to tell the transport to log even on the console
-  - **safe** {*Boolean*}: a flag to tell the transport to check the consistency of the saved log
+  - **silent** {*Boolean*}: a flag to tell the transport to log even on the console. Default: true
+  - **safe** {*Boolean*}: a flag to tell the transport to check the consistency of the saved log. Default: false
 
 ## License
 The MIT License (MIT)
