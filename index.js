@@ -16,7 +16,7 @@ var winston = require('winston'),
         // @todo: setup an empty Waterline collection if no one is given
         me.collection = options.collection;
         me.level = options.level || 'info';
-        me.silent = options.silent || false;
+        me.silent = options.silent || true;
         me.safe = options.safe || false;
         me.fields = options.fields || {
             id: 'id',
