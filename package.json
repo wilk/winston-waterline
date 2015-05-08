@@ -21,8 +21,9 @@
   "readmeFilename": "README.md",
   "gitHead": "1c40afe8bff4330fee3773f6ff2f7820e9be8f6e",
   "dependencies": {
-    "winston": "~0.7.3",
-    "q": "~1.0.1"
+    "moment": "^2.10.2",
+    "q": "~1.0.1",
+    "winston": "~0.7.3"
   },
   "devDependencies": {
     "gulp": "~3.6.0",
