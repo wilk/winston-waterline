@@ -3,6 +3,7 @@
 var winston = require('winston'),
     q = require('q'),
     util = require('util'),
+    moment = require('moment'),
     // Waterline transport definition
     Waterline = function (options) {
         var me = this;
@@ -18,6 +19,7 @@ var winston = require('winston'),
         me.level = options.level || 'info';
         me.silent = options.silent || true;
         me.safe = options.safe || false;
+        me.timestampFormat = options.timestampFormat || 'DD/MM/YYYY';
         me.fields = options.fields || {
             id: 'id',
             message: 'message',
@@ -47,7 +49,7 @@ util.inherits(Waterline, winston.Transport);
 Waterline.prototype.log = function (level, message, meta, callback) {
     var me = this,
         deferred = q.defer(),
-        timestamp = new Date(),
+        timestamp = moment().format(me.timestampFormat),
         prefix = timestamp + ' - ' + level + ': ',
         log = {};
 
