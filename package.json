@@ -1,6 +1,6 @@
 {
   "name": "winston-waterline",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Winston transport for Waterline ORM",
   "main": "index.js",
   "scripts": {
